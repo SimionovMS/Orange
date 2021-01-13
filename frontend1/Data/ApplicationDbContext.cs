@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Repository
+namespace frontend1.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

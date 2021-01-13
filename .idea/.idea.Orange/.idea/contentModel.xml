@@ -131,7 +131,7 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Repository" t="IncludeRecursive">
         <e p="ApplicationContext.cs" t="Include" />
-        <e p="ApplicationDbContext.cs" t="Include" />
+        <e p="ApplicationIdentityDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="IRepository.cs" t="Include" />
         <e p="Migrations" t="Include">

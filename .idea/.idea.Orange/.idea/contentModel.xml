@@ -127,6 +127,19 @@
           </e>
         </e>
       </e>
+      <e p="Mv.Integrations" t="IncludeRecursive">
+        <e p="ApiClient.cs" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Mv.Integrations.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.2" t="Include">
+              <e p="Mv.Integrations.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="Orange.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Repository" t="IncludeRecursive">
@@ -142,12 +155,12 @@
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">
-              <e p="Repository.AssemblyInfo.cs" t="Include" />
+              <e p="Repositories.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
+        <e p="Repositories.csproj" t="IncludeRecursive" />
         <e p="Repository.cs" t="Include" />
-        <e p="Repository.csproj" t="IncludeRecursive" />
       </e>
       <e p="Service" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />

@@ -6,16 +6,16 @@ namespace Repository
 {
     public class Repository : IRepository
     {
-        private readonly ApplicationContext context;
+        private readonly ApplicationContext _context;
 
         public Repository(ApplicationContext context)
         {
-            this.context = context;
+            _context = context;
         }
 
         IEnumerable<FavoriteMovie> IRepository.GetAll()
         {
-            return context.FavoriteMovies.AsEnumerable();
+            return _context.FavoriteMovies.AsEnumerable();
         }
     }
 }

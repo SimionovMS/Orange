@@ -16,15 +16,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b17678e4-702d-4b58-b554-6c84cc3185da" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Mv.Integrations/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataAccess/FavoriteMovie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/FavoriteMovie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/FrontEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/FrontEnd.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Models/ErrorViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Models/ErrorViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/ApplicationDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repository/Repository.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Repository/Repository.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Home/Privacy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Home/Privacy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Shared/Error.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Shared/Error.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Shared/_CookieConsentPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Shared/_CookieConsentPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Shared/_LoginPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Shared/_ValidationScriptsPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Shared/_ValidationScriptsPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/_ViewImports.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/_ViewImports.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/_ViewStart.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/bootstrap/dist/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/jquery-validation/dist/jquery.validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/jquery-validation/dist/jquery.validate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/jquery/dist/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/wwwroot/lib/jquery/dist/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Orange.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Orange.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/ApplicationContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/ApplicationIdentityDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/IRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/Repository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository/Repository.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/Implementation/Service.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Implementation/Service.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/Interface/IService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Interface/IService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service/Service.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Service.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,15 +75,18 @@
         <option value="$PROJECT_DIR$/Orange/Startup.cs" />
         <option value="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.Designer.cs" />
         <option value="$PROJECT_DIR$/FrontEnd/Controllers/AccountController.cs" />
-        <option value="$PROJECT_DIR$/Repository/Repository.cs" />
         <option value="$PROJECT_DIR$/Repository/ApplicationDbContext.cs" />
         <option value="$PROJECT_DIR$/Repository/IdntDbContext.cs" />
         <option value="$PROJECT_DIR$/Repository/DbContext.cs" />
         <option value="$PROJECT_DIR$/Repository/IdentityDbContext.cs" />
         <option value="$PROJECT_DIR$/Repository/Migrations/ApplicationDbContextModelSnapshot.cs" />
-        <option value="$PROJECT_DIR$/FrontEnd/Startup.cs" />
         <option value="$PROJECT_DIR$/Repository/Repository.csproj" />
         <option value="$PROJECT_DIR$/Repository/Migrations/00000000000000_CreateIdentitySchema.cs" />
+        <option value="$PROJECT_DIR$/Repository/Repository.cs" />
+        <option value="$PROJECT_DIR$/Repositories/Repository.cs" />
+        <option value="$PROJECT_DIR$/Service/Interface/IService.cs" />
+        <option value="$PROJECT_DIR$/FrontEnd/Startup.cs" />
+        <option value="$PROJECT_DIR$/Service/Implementation/Service.cs" />
       </list>
     </option>
   </component>
@@ -156,14 +185,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610556690077</updated>
-      <workItem from="1610556732767" duration="7324000" />
+      <workItem from="1610556732767" duration="9354000" />
+      <workItem from="1610580199514" duration="357000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -175,18 +205,23 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="707" y="385" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1610575297916">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="385" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610575297916" />
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size" timestamp="1610560644014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610560644014" />
-    <state x="638" y="254" width="740" height="534" key="find.popup" timestamp="1610565056027">
+    <state x="638" y="254" width="740" height="534" key="find.popup" timestamp="1610575395996">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="638" y="254" width="740" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610565056027" />
+    <state x="638" y="254" width="740" height="534" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610575395996" />
   </component>
 </project>

@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using FrontEnd.Models;
+using System.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interface;
 
@@ -17,6 +17,12 @@ namespace FrontEnd.Controllers
         public IActionResult Index()
         {
             ViewBag.Movies = _service.GetMoviesByPage(1);
+            return View();
+        }
+        
+        public IActionResult MovieDetails(long movieId)
+        {
+            ViewBag.Movies = _service.GetMovieDetails(movieId);
             return View();
         }
     }

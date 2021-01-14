@@ -136,6 +136,7 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Movie.cs" t="Include" />
+        <e p="MovieDetails.cs" t="Include" />
         <e p="Mv.Integrations.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

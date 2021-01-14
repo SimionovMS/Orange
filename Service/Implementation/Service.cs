@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Service.Interface;
 using Mv.Integrations;
 
@@ -6,16 +7,21 @@ namespace Service.Implementation
 {
     public class Service : IService
     {
-        private readonly IApiClient _api;
+        private readonly IApiClient _apiClient;
 
-        public Service(IApiClient api)
+        public Service(IApiClient apiClient)
         {
-            _api = api;
+            _apiClient = apiClient;
         }
 
-        public IEnumerable<object> GetMoviesByPage(int pageNumber)
+        public IEnumerable<Mv.Integrations.Movie> GetMoviesByPage(int pageNumber)
         {
-            return  _api.GetMovies(pageNumber);
+            return _apiClient.GetMovies(pageNumber).ToList();
+        }
+
+        public MovieDetails GetMovieDetails(long movieId)
+        {
+            return _apiClient.GetMovieDetails(movieId);
         }
     }
 }

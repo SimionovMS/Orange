@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Mv.Integrations;
 using Repository;
 using Service.Interface;
 
@@ -39,6 +40,7 @@ namespace FrontEnd
 
             services.AddTransient<IRepository, Repository.Repository>();
             services.AddTransient<IService, Service.Implementation.Service>();
+            services.AddTransient<IApiClient, ApiClient>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

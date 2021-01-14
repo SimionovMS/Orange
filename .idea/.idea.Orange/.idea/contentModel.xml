@@ -31,6 +31,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
+          <e p="MovieController.cs" t="Include" />
         </e>
         <e p="FrontEnd.csproj" t="IncludeRecursive" />
         <e p="Models" t="Include">
@@ -55,6 +56,9 @@
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
+          </e>
+          <e p="Movie" t="Include">
+            <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_CookieConsentPartial.cshtml" t="Include" />
@@ -131,6 +135,7 @@
         <e p="ApiClient.cs" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Movie.cs" t="Include" />
         <e p="Mv.Integrations.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -144,7 +149,7 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Repository" t="IncludeRecursive">
         <e p="ApplicationContext.cs" t="Include" />
-        <e p="ApplicationIdentityDbContext.cs" t="Include" />
+        <e p="ApplicationDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="IRepository.cs" t="Include" />
         <e p="Migrations" t="Include">
@@ -170,6 +175,7 @@
         <e p="Interface" t="Include">
           <e p="IService.cs" t="Include" />
         </e>
+        <e p="Movie.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">

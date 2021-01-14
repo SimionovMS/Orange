@@ -1,58 +1,72 @@
-﻿using RestSharp;
+﻿using System;
+using RestSharp;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Mv.Integrations
 {
-    public class ApiClient
+    public interface IApiClient
+    {
+        IEnumerable<Movie> GetMovies(int pageNumber);
+    }
+
+    public class ApiClient : IApiClient
     {
         private RestRequest _restRequest;
         private readonly RestClient _restClient;
         private readonly string _apiKey;
+        private readonly string _baseUrl;
 
-        public ApiClient()
+        public ApiClient(IConfiguration configuration)
         {
-            _apiKey = apiKey;
-            _restClient = new RestClient(apiUrl);
+            _apiKey = configuration.GetSection("MovieDbApiKey").Value;
+            _restClient = new RestClient(configuration.GetSection("MovieDbBaseUrl").Value);
+            _baseUrl = configuration.GetSection("MovieDbBaseUrl").Value;
         }
 
-        public IList<object> GetReturns(int pageNumber, string state)
+        public IEnumerable<Movie> GetMovies(int pageNumber)
         {
-            var newOrders = new List<object>();
-            var resource = $"returns?state={state}&page={pageNumber}";
+            var resource = $"/discover/movie?api_key={_apiKey}&page={pageNumber}";
 
-            _restRequest = SetBaseRequest();
-            _restRequest.Resource = FormatResource(resource);
+            _restRequest = new RestRequest {Resource = _baseUrl + resource};
 
             var response = _restClient.Execute<List<object>>(_restRequest);
+            
+            if (response.StatusCode != HttpStatusCode.OK) return new List<Movie>();;
+            
+            var data = JObject.Parse(response.Content);
+            var jResults = data["results"];
 
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                if (response.Data.Count <= 0) return newOrders;
+            var moviesList = jResults.Select(jResult => new Movie
+                {
+                    IsAdult = jResult["adult"].ToString() == "true",
+                    BackdropPath = jResult["backdrop_path"].ToString(),
+                    GenreIds = jResult["genre_ids"].Values<int>().ToList(),
+                    Id = int.Parse(jResult["id"].ToString()),
+                    OriginalLanguage = jResult["original_language"].ToString(),
+                    OriginalTitle = jResult["original_title"].ToString(),
+                    Overview = jResult["overview"].ToString(),
+                    Popularity = decimal.Parse(jResult["popularity"].ToString()),
+                    PosterPath = jResult["poster_path"].ToString(),
+                    ReleaseDate = jResult["release_date"] != null && !string.IsNullOrEmpty(jResult["release_date"].ToString())
+                    ? DateTime.ParseExact(jResult["release_date"].ToString(), "yyyy-MM-dd",
+                        System.Globalization.CultureInfo.InvariantCulture) : (DateTime?) null,
+                    Title = jResult["title"].ToString(),
+                    HasVideo = jResult["video"].ToString() == "true",
+                    VoteAverage = decimal.Parse(jResult["vote_average"].ToString()),
+                    VoteCount = long.Parse(jResult["vote_count"].ToString())
+                })
+                .ToList();
+            
+            // if (response.Data.Count <= 0) return moviesList;
+            //
+            // moviesList.AddRange(GetMovies(pageNumber + 1));
 
-                newOrders.AddRange(response.Data);
-                newOrders.AddRange(GetReturns(pageNumber + 1, state));
-            }
-            else
-            {
-                //_importReport.AddNotification("Failed to get returns: API response = " + response.Content, NotificationType.Error);
-            }
-
-            return newOrders;
-        }
-
-        private RestRequest SetBaseRequest()
-        {
-            var request = new RestRequest();
-
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("x-api-key", _apiKey);
-
-            return request;
-        }
-        private string FormatResource(string resource)
-        {
-            return string.Format("/{0}/{1}", "", resource);
+            return moviesList;
         }
     }
 }

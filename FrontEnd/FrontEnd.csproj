@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repositories.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
   </ItemGroup>
 
 </Project>

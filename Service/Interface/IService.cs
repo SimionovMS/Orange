@@ -4,6 +4,6 @@ namespace Service.Interface
 {
     public interface IService
     {
-        IEnumerable<object> GetAllMovies();
+        IEnumerable<object> GetMoviesByPage(int pageNumber);
     }
 }

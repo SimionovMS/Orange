@@ -1,41 +1,21 @@
 ﻿using System.Collections.Generic;
 using Service.Interface;
-using RestSharp;
 using Mv.Integrations;
 
 namespace Service.Implementation
 {
     public class Service : IService
     {
+        private readonly IApiClient _api;
 
-        private RestRequest _restRequest;
-        private readonly RestClient _restClient;
-        private readonly string _apiKey;
-
-        public Service(string apiKey, string apiUrl)
+        public Service(IApiClient api)
         {
-            _apiKey = apiKey;
-            _restClient = new RestClient(apiUrl);
+            _api = api;
         }
 
-        public IEnumerable<object> GetAllMovies()
+        public IEnumerable<object> GetMoviesByPage(int pageNumber)
         {
-            var list = new List<object>();
-            var obj = new
-            {
-                Id = 1,
-                Rating = 1,
-            };
-
-            list.Add(obj);
-
-            var apiKey = Configuration.GetConnectionString("DefaultConnection")
-            
-            var integration = new ApiClient("","");
-
-            return list;
+            return  _api.GetMovies(pageNumber);
         }
-
-      
     }
 }

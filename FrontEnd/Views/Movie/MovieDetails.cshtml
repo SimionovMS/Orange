@@ -1,8 +1,210 @@
-﻿@model object
+﻿@using System.Globalization
+@model FrontEnd.Models.MovieDetails;
 
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewData["Title"] = @Model.Title;
 }
 
-<h2>title</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div>
+    <div class="row">
+        <div class="col-md-6 title_wrapper">
+            <h1 style="width:100%">@Model.Title (@Convert.ToDateTime(@Model.ReleaseDate).Year)</h1>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-1">
+            <div>
+                <div>
+                    <strong>
+                        <span>Rating: @Model.VoteAverage</span>
+                    </strong><span class="grey">/</span><span class="grey">10</span>
+                </div>
+                <span class="small">Votes: @Model.VoteCount</span>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <span class="small">
+                <i class="fa fa-heart-o" style="font-size:48px;"></i>
+                <i class="fa fa-heart"></i>
+            </span>
+        </div>
+    </div>
+    <div style="font-size: 20px; padding-bottom: 10px">
+        @if (@Model.RunTime != 0)
+        {
+            @decimal.ToInt32(@Model.RunTime / 60)<text>h</text>
+            @decimal.ToInt32(@Model.RunTime % 60)<text>min |</text>
+        }
+        @foreach (var genre in @Model.Genres.Where(genre => @Model.Genres.Last().Value != genre.Value))
+        {
+            @:@genre.Value,
+        }
+        @Model.Genres.Last().Value
+        | @Model.ReleaseDate
+        @if (@Model.ProductionCountries.Any())
+        {
+            <text> (</text>
+            @foreach (var country in @Model.ProductionCountries.Where(country => country != @Model.ProductionCountries.Last()))
+            {
+                @:@country,
+            }
+            @Model.ProductionCountries?.Last()
+            <text>)</text>
+        }
+    </div>
+    @if (string.IsNullOrEmpty(@Model.Video))
+    {
+        <div class="centered-row" style="width: 100%">
+            <div class="column" style="width: 100%">
+                <img style="width: 100%" src="@Model.BackdropPath" alt="@Model.Title">
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row" style="width: 100%">
+            <div class="col-md-4">
+                <img src="@Model.PosterPath" alt="@Model.Title">
+            </div>
+            <div class="col-md-8" style="padding: 0;min-height:300px">
+                <iframe width="100%"
+                        height="100%"
+                        src="@Model.Video"
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    }
+    <h2 class="header-text">Overview</h2>
+    <div style="font-size: 20px">@Model.Overview</div>
+    <table class="styled-table">
+        <tr>
+            <td>Original Title</td>
+            <td>@Model.OriginalTitle</td>
+        </tr>
+        <tr>
+            <td>Original Language</td>
+            <td>@Model.OriginalLanguage</td>
+        </tr>
+        <tr>
+            <td>Budget</td>
+            <td id="budget">
+                @(@Model.Budget == 0 ? "Unknown" : @Model.Budget.ToString(CultureInfo.InvariantCulture))
+            </td>
+        </tr>
+        <tr>
+            <td>Revenue</td>
+            <td>
+                @(@Model.Revenue == 0 ? "Unknown" : @Model.Revenue.ToString(CultureInfo.InvariantCulture))
+            </td>
+        </tr>
+        <tr>
+            <td>Spoken Languages</td>
+            <td>
+                @if (@Model.SpokenLanguages.Any())
+                {
+                    @foreach (var language in @Model.SpokenLanguages.Where(x => x != @Model.SpokenLanguages.Last()))
+                    {
+                        @language
+                    }
+                    @Model.SpokenLanguages.Last()
+                }
+                else
+                {
+                    @:None
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Collection Name</td>
+            <td>
+                @(string.IsNullOrEmpty(@Model.Collection) ? "None" : @Model.Collection)
+            </td>
+        </tr>
+        <tr>
+            <td>Popularity</td>
+            <td>
+                <input id="revenue">@(@Model.Popularity == 0 ? (object) "Unknown" : @Model.Popularity.ToString(CultureInfo.InvariantCulture))
+            </td>
+        </tr>
+        <tr>
+            <td>Homepage</td>
+            <td id="homepage">
+                @if (string.IsNullOrEmpty(@Model.Homepage))
+                {
+                    @:None
+                }
+                else
+                {
+                    <a target="_blank" href="@Model.Homepage">link</a>
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Imdb link</td>
+            <td id="homepage">
+                <a target="_blank" href="@Model.ImdbId">link</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>@Model.Status</td>
+        </tr>
+        <tr>
+            <td>Tagline</td>
+            <td>
+                @(string.IsNullOrEmpty(@Model.Tagline) ? "None" : @Model.Tagline)
+            </td>
+        </tr>
+        <tr>
+            <td>Production Companies</td>
+            <td>
+
+                @if (@Model.ProductionCompanies.Any())
+                {
+                    @foreach (var company in @Model.ProductionCompanies.Where(x => x != @Model.ProductionCompanies.Last()))
+                    {
+                        @:@company,
+                    }
+                    @Model.ProductionCompanies.Last()
+                }
+                else
+                {
+                    @:None
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Adult</td>
+            <td id="isAdult">
+                @(@Model.IsAdult ? "Yes" : "No")
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+@* *@
+@* <script src="~/lib/jquery/dist/jquery.js"></script> *@
+@* <script>       *@
+@* $(document).ready(numberWithCommas(@Model.Revenue) *@
+@* ); *@
+@* *@
+@* function numberWithCommas(x) { *@
+@*    console.log($('#budget').filter(function(){return $.trim(this.innerHTML) === "0"}).text('')); *@
+@* *@
+@*         console.log(x,  $('.budget').value); *@
+@*     let replace = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); *@
+@*     console.log(replace, $('#revenue').value); *@
+@* } *@
+@* var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model)); *@
+@*     console.log(model);    *@
+@* </script> *@

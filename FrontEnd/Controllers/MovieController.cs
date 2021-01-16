@@ -1,10 +1,14 @@
-﻿using System.Diagnostics;
-using System.Web.Mvc;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Mv.Integrations;
+using Newtonsoft.Json;
 using Service.Interface;
+using MovieDetails = FrontEnd.Models.MovieDetails;
+using PagedMovies = FrontEnd.Models.PagedMovies;
 
 namespace FrontEnd.Controllers
 {
+    [Route("")]
+    [Route("movie")]
     public class MovieController : Controller
     {
         private readonly IService _service;
@@ -14,16 +18,36 @@ namespace FrontEnd.Controllers
             _service = service;
         }
 
+        [Route("")]
+        [Route("tops")]
         public IActionResult Index()
         {
-            ViewBag.Movies = _service.GetMoviesByPage(1);
             return View();
         }
-        
+
+
+        [Route("popular/{pageNumber:int}")]
+        public IActionResult Popular(int pageNumber)
+        {
+            return View(JsonConvert.DeserializeObject<PagedMovies>(
+                JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber))));
+        }
+
+        [Route("top-rated/{pageNumber:int}")]
+        public IActionResult TopRated(int pageNumber)
+        {
+            return View(
+                JsonConvert.DeserializeObject<PagedMovies>(
+                    JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber))));
+        }
+
+        [HttpGet]
+        [Route("details/{movieId}")]
         public IActionResult MovieDetails(long movieId)
         {
-            ViewBag.Movies = _service.GetMovieDetails(movieId);
-            return View();
+            return View(
+                JsonConvert.DeserializeObject<MovieDetails>(
+                    JsonConvert.SerializeObject(_service.GetMovieDetails(movieId))));
         }
     }
 }

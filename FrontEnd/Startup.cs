@@ -70,7 +70,7 @@ namespace FrontEnd
             {
                 routes.MapRoute(
                     "default",
-                    "{controller=Home}/{action=Index}/{id?}");
+                    "{controller=Movie}/{action=Index}/{id?}");
             });
         }
     }

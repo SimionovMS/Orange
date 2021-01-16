@@ -36,6 +36,8 @@
         <e p="FrontEnd.csproj" t="IncludeRecursive" />
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="MovieDetails.cs" t="Include" />
+          <e p="PagedMovies.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -55,13 +57,14 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
-            <e p="Privacy.cshtml" t="Include" />
           </e>
           <e p="Movie" t="Include">
             <e p="Index.cshtml" t="Include" />
+            <e p="MovieDetails.cshtml" t="Include" />
+            <e p="Popular.cshtml" t="Include" />
+            <e p="TopRated.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
-            <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_LoginPartial.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
@@ -77,6 +80,10 @@
             <e p="site.js" t="Include" />
           </e>
           <e p="lib" t="Include">
+            <e p="autoNumeric" t="Include">
+              <e p="autoNumeric-min.js" t="Include" />
+              <e p="autoNumeric.js" t="Include" />
+            </e>
             <e p="bootstrap" t="Include">
               <e p="dist" t="Include">
                 <e p="css" t="Include">
@@ -102,6 +109,7 @@
                   <e p="bootstrap.js.map" t="Include" />
                   <e p="bootstrap.min.js" t="Include" />
                   <e p="bootstrap.min.js.map" t="Include" />
+                  <e p="bootstrapx.js" t="Include" />
                 </e>
               </e>
               <e p="LICENSE" t="Include" />
@@ -135,8 +143,10 @@
         <e p="ApiClient.cs" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ImageConfiguration.cs" t="Include" />
         <e p="Movie.cs" t="Include" />
         <e p="MovieDetails.cs" t="Include" />
+        <e p="MovieParameters.cs" t="Include" />
         <e p="Mv.Integrations.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -145,6 +155,7 @@
             </e>
           </e>
         </e>
+        <e p="PagedMovies.cs" t="Include" />
       </e>
       <e p="Orange.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

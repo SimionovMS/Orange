@@ -10,7 +10,7 @@ a.navbar-brand {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+  font-size: 20px;
 }
 @media (min-width: 768px) {
   html {
@@ -53,4 +53,67 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 20px;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.centered-row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.clickable tr:hover,
+.clickable tbody tr:nth-of-type(even):hover
+{
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.heroic-overview .title_block .title_bar_wrapper .title_wrapper h1 {
+  font: 36px Arial,sans-serif;
+  font-weight: normal;
+  line-height: 110%;
+  margin: 0;
+  color: #fff;
+  padding-bottom: 3px;
+}
+
+.heroic-overview .title_block .title_bar_wrapper  .header-text {
+  font: 24px Arial,sans-serif;
+  font-weight: bold;
+  line-height: 110%;
+  margin: 10px;
+  color: #fff;
+  padding-bottom: 3px;
 }

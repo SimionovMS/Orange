@@ -1,0 +1,70 @@
+﻿@model FrontEnd.Models.PagedMovies;
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<link rel="stylesheet" href="~/css/site.css"/>
+@using (Html.BeginForm("Popular", "Movie", FormMethod.Post))
+{
+    <div>
+        <h2> Popular Movies </h2>
+        <table class="styled-table clickable">
+            <thead>
+            <tr>
+                <th>Votes</th>
+                <th>Movie</th>
+                <th>Release Date</th>
+                <th>Revenue</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                <tr onclick="showDetails(@movie.Id)">
+                    <td>@movie.VoteCount</td>
+                    <td>
+                        @movie.Title
+                    </td>
+                    <td>@movie.ReleaseDate</td>
+                    <td>@movie.Popularity</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <div>
+            <ul class="pagination">
+                @if (Model.ShowPrevious)
+                {
+                    <button class="page-link" onclick="PagerClick(1);">First</button>
+                    <button class="page-link" onclick="PagerClick(@Model.Page - 1);">Previous</button>
+                }
+                &#160;
+                <button class="page-link" style=" pointer-events: none;">@Model.Page</button>
+                &#160;
+                @if (Model.ShowNext)
+                {
+                    <button class="page-link" onclick="PagerClick(@Model.Page + 1);">Next</button>
+                    <button class="page-link" onclick="PagerClick(@Model.TotalPages);">Last</button>
+                }
+            </ul>
+        </div>
+    </div>
+    <input type="hidden" id="hfCurrentPageIndex" name="pageNumber"/>
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script type="text/javascript">
+    function showDetails(movieId) {
+        console.log(movieId);
+        window.location.href = '/movie/details/' + movieId;
+    }
+    
+    function PagerClick(index) {
+        console.log(index)      
+        document.getElementById("hfCurrentPageIndex").value = index;
+        console.log(index);
+        window.location.href = '/movie/popular/' + index;
+   }
+</script>

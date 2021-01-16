@@ -3,6 +3,7 @@ using RestSharp;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -11,8 +12,11 @@ namespace Mv.Integrations
 {
     public interface IApiClient
     {
-        IEnumerable<Movie> GetMovies(int pageNumber);
+        PagedMovies GetMovies(int pageNumber);
         MovieDetails GetMovieDetails(long movieId);
+        ImageConfiguration GetImageConfiguration();
+        string GetVideoId(long movieId);
+        Dictionary<int, string> GetGenres();
     }
 
     public class ApiClient : IApiClient
@@ -29,13 +33,13 @@ namespace Mv.Integrations
             _baseUrl = configuration.GetSection("MovieDbBaseUrl").Value;
         }
 
-        public IEnumerable<Movie> GetMovies(int pageNumber)
-        {
-            var resource = $"/discover/movie?api_key={_apiKey}&page={pageNumber}";
+        public PagedMovies GetMovies(int pageNumber)
+        {            
+            var resource = $"/discover/movie?api_key={_apiKey}&page={pageNumber}&sort_by=revenue.desc";
             _restRequest = new RestRequest {Resource = _baseUrl + resource};
             var response = _restClient.Execute<List<object>>(_restRequest);
             
-            if (response.StatusCode != HttpStatusCode.OK) return new List<Movie>();;
+            if (response.StatusCode != HttpStatusCode.OK) return new PagedMovies();;
             
             var data = JObject.Parse(response.Content);
             var jResults = data["results"];
@@ -49,9 +53,7 @@ namespace Mv.Integrations
                     Overview = content["overview"].ToString(),
                     Popularity = decimal.Parse(content["popularity"].ToString()),
                     PosterPath = content["poster_path"].ToString(),
-                    ReleaseDate = content["release_date"] != null && !string.IsNullOrEmpty(content["release_date"].ToString())
-                    ? DateTime.ParseExact(content["release_date"].ToString(), "yyyy-MM-dd",
-                        System.Globalization.CultureInfo.InvariantCulture) : (DateTime?) null,
+                    ReleaseDate = content["release_date"]?.ToString(),
                     Title = content["title"].ToString(),
                     HasVideo = content["video"].ToString() == "true",
                     VoteAverage = decimal.Parse(content["vote_average"].ToString()),
@@ -59,10 +61,18 @@ namespace Mv.Integrations
                     GenreIds = content["genre_ids"].Values<int>().ToList()
                 })
                 .ToList();
-            
-            return moviesList;
-        }
 
+            var pagedMovies = new PagedMovies
+            {
+                Page = int.Parse(data["page"].ToString()),
+                TotalPages = int.Parse(data["total_pages"].ToString()),
+                TotalResults = int.Parse(data["total_results"].ToString()),
+                Movies = moviesList
+            };
+            
+            return pagedMovies;
+        }
+        
         public MovieDetails GetMovieDetails(long movieId)
         {
             var resource = $"/movie/{movieId}?api_key={_apiKey}";
@@ -76,17 +86,13 @@ namespace Mv.Integrations
             {
                 IsAdult = content["adult"].ToString() == "true",
                 BackdropPath = content["backdrop_path"].ToString(),
-                Id = int.Parse(content["id"].ToString()),
+                Id = long.Parse(content["id"].ToString()),
                 OriginalLanguage = content["original_language"].ToString(),
                 OriginalTitle = content["original_title"].ToString(),
                 Overview = content["overview"].ToString(),
                 Popularity = decimal.Parse(content["popularity"].ToString()),
                 PosterPath = content["poster_path"].ToString(),
-                ReleaseDate = content["release_date"] != null &&
-                              !string.IsNullOrEmpty(content["release_date"].ToString())
-                    ? DateTime.ParseExact(content["release_date"].ToString(), "yyyy-MM-dd",
-                        System.Globalization.CultureInfo.InvariantCulture)
-                    : (DateTime?) null,
+                ReleaseDate = content["release_date"].ToString(),
                 Title = content["title"].ToString(),
                 HasVideo = content["video"].ToString() == "true",
                 VoteAverage = decimal.Parse(content["vote_average"].ToString()),
@@ -100,14 +106,58 @@ namespace Mv.Integrations
                 ImdbId = content["imdb_id"].ToString(),
                 Tagline = content["tagline"].ToString(),
                 ProductionCompanies = content["production_companies"].ToList()
-                    .Select(x => int.Parse(x["id"].ToString())).ToList(),
-                ProductionContries =
+                    .Select(x => x["name"].ToString()).ToList(),
+                ProductionCountries =
                     content["production_countries"].ToList().Select(x => x["name"].ToString()).ToList(),
-                SpokenLanguages = content["spoken_languages"].ToList().Select(x => x["name"].ToString()).ToList(),
-                Collection = long.Parse(content["belongs_to_collection"]["id"].ToString())
+                SpokenLanguages = content["spoken_languages"].ToList().Select(x => x["name"].ToString()).ToList()
             };
 
             return movie;
+        }
+
+        public ImageConfiguration GetImageConfiguration()
+        {
+            var imageConf = new ImageConfiguration();
+            var resource = $"/configuration?api_key={_apiKey}";
+            _restRequest = new RestRequest {Resource = _baseUrl + resource};
+            var response = _restClient.Execute<List<object>>(_restRequest);
+            
+            if (response.StatusCode != HttpStatusCode.OK) return imageConf;
+
+            var content = JObject.Parse(response.Content);
+            imageConf.BaseUrl = content["images"]["secure_base_url"].ToString();
+            imageConf.PosterSize = content["images"]["poster_sizes"][3].ToString();
+            imageConf.BackDropSize = content["images"]["backdrop_sizes"][2].ToString();
+            
+            return imageConf;
+        }
+
+        public string GetVideoId(long movieId)
+        {
+            var resource = $"/movie/{movieId}/videos?api_key={_apiKey}&language=en-US";
+            _restRequest = new RestRequest {Resource = _baseUrl + resource};
+            var response = _restClient.Execute<List<object>>(_restRequest);
+            
+            if (response.StatusCode != HttpStatusCode.OK) return string.Empty;
+            
+            var content = JObject.Parse(response.Content);
+            var hasVideo = content["results"].Any();
+
+            return hasVideo ? content["results"][0]["key"].ToString() : string.Empty;
+        }
+
+        public Dictionary<int, string> GetGenres()
+        {
+            var resource = $"/genre/movie/list?api_key={_apiKey}&language=en-US";
+            _restRequest = new RestRequest {Resource = _baseUrl + resource};
+            var response = _restClient.Execute<List<object>>(_restRequest);
+            
+            if (response.StatusCode != HttpStatusCode.OK) return new Dictionary<int, string>();
+            
+            var content = JObject.Parse(response.Content)["genres"].ToList();
+            var dict = content.ToDictionary(genre => int.Parse(genre["id"].ToString()), genre => genre["name"].ToString());
+
+            return dict;
         }
     }
 }

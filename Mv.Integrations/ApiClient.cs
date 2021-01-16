@@ -1,18 +1,18 @@
 ﻿using System;
-using RestSharp;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Runtime.Serialization;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 
 namespace Mv.Integrations
 {
     public interface IApiClient
     {
-        PagedMovies GetMovies(int pageNumber);
+        PagedMovies GetMovies(int pageNumber, SortBy sortBy);
         MovieDetails GetMovieDetails(long movieId);
         ImageConfiguration GetImageConfiguration();
         string GetVideoId(long movieId);
@@ -21,10 +21,10 @@ namespace Mv.Integrations
 
     public class ApiClient : IApiClient
     {
-        private RestRequest _restRequest;
-        private readonly RestClient _restClient;
         private readonly string _apiKey;
         private readonly string _baseUrl;
+        private readonly RestClient _restClient;
+        private RestRequest _restRequest;
 
         public ApiClient(IConfiguration configuration)
         {
@@ -33,14 +33,15 @@ namespace Mv.Integrations
             _baseUrl = configuration.GetSection("MovieDbBaseUrl").Value;
         }
 
-        public PagedMovies GetMovies(int pageNumber)
-        {            
-            var resource = $"/discover/movie?api_key={_apiKey}&page={pageNumber}&sort_by=revenue.desc";
+        public PagedMovies GetMovies(int pageNumber, SortBy sortBy)
+        {
+            var resource = $"/discover/movie?api_key={_apiKey}&page={pageNumber}&sort_by={sortBy.Value}";
             _restRequest = new RestRequest {Resource = _baseUrl + resource};
             var response = _restClient.Execute<List<object>>(_restRequest);
-            
-            if (response.StatusCode != HttpStatusCode.OK) return new PagedMovies();;
-            
+
+            if (response.StatusCode != HttpStatusCode.OK) return new PagedMovies();
+            ;
+
             var data = JObject.Parse(response.Content);
             var jResults = data["results"];
             var moviesList = jResults.Select(content => new Movie
@@ -69,18 +70,18 @@ namespace Mv.Integrations
                 TotalResults = int.Parse(data["total_results"].ToString()),
                 Movies = moviesList
             };
-            
+
             return pagedMovies;
         }
-        
+
         public MovieDetails GetMovieDetails(long movieId)
         {
             var resource = $"/movie/{movieId}?api_key={_apiKey}";
             _restRequest = new RestRequest {Resource = _baseUrl + resource};
             var response = _restClient.Execute<List<object>>(_restRequest);
-            
+
             if (response.StatusCode != HttpStatusCode.OK) return new MovieDetails();
-            
+
             var content = JObject.Parse(response.Content);
             var movie = new MovieDetails
             {
@@ -121,14 +122,14 @@ namespace Mv.Integrations
             var resource = $"/configuration?api_key={_apiKey}";
             _restRequest = new RestRequest {Resource = _baseUrl + resource};
             var response = _restClient.Execute<List<object>>(_restRequest);
-            
+
             if (response.StatusCode != HttpStatusCode.OK) return imageConf;
 
             var content = JObject.Parse(response.Content);
             imageConf.BaseUrl = content["images"]["secure_base_url"].ToString();
             imageConf.PosterSize = content["images"]["poster_sizes"][3].ToString();
             imageConf.BackDropSize = content["images"]["backdrop_sizes"][2].ToString();
-            
+
             return imageConf;
         }
 
@@ -137,9 +138,9 @@ namespace Mv.Integrations
             var resource = $"/movie/{movieId}/videos?api_key={_apiKey}&language=en-US";
             _restRequest = new RestRequest {Resource = _baseUrl + resource};
             var response = _restClient.Execute<List<object>>(_restRequest);
-            
+
             if (response.StatusCode != HttpStatusCode.OK) return string.Empty;
-            
+
             var content = JObject.Parse(response.Content);
             var hasVideo = content["results"].Any();
 
@@ -151,13 +152,25 @@ namespace Mv.Integrations
             var resource = $"/genre/movie/list?api_key={_apiKey}&language=en-US";
             _restRequest = new RestRequest {Resource = _baseUrl + resource};
             var response = _restClient.Execute<List<object>>(_restRequest);
-            
+
             if (response.StatusCode != HttpStatusCode.OK) return new Dictionary<int, string>();
-            
+
             var content = JObject.Parse(response.Content)["genres"].ToList();
-            var dict = content.ToDictionary(genre => int.Parse(genre["id"].ToString()), genre => genre["name"].ToString());
+            var dict = content.ToDictionary(genre => int.Parse(genre["id"].ToString()),
+                genre => genre["name"].ToString());
 
             return dict;
+        }
+
+        private static string GetEnumMemberValue<T>(T value)
+            where T : struct, IConvertible
+        {
+            return typeof(T)
+                .GetTypeInfo()
+                .DeclaredMembers
+                .SingleOrDefault(x => x.Name == value.ToString())
+                ?.GetCustomAttribute<EnumMemberAttribute>(false)
+                ?.Value;
         }
     }
 }

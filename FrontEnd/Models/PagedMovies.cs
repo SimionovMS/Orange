@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Mv.Integrations;
-using Service.Interface;
 
 namespace FrontEnd.Models
 {

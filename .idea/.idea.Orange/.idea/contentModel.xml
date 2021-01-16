@@ -38,6 +38,7 @@
           <e p="ErrorViewModel.cs" t="Include" />
           <e p="MovieDetails.cs" t="Include" />
           <e p="PagedMovies.cs" t="Include" />
+          <e p="TopMovies.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -80,10 +81,6 @@
             <e p="site.js" t="Include" />
           </e>
           <e p="lib" t="Include">
-            <e p="autoNumeric" t="Include">
-              <e p="autoNumeric-min.js" t="Include" />
-              <e p="autoNumeric.js" t="Include" />
-            </e>
             <e p="bootstrap" t="Include">
               <e p="dist" t="Include">
                 <e p="css" t="Include">
@@ -156,6 +153,7 @@
           </e>
         </e>
         <e p="PagedMovies.cs" t="Include" />
+        <e p="SortBy.cs" t="Include" />
       </e>
       <e p="Orange.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

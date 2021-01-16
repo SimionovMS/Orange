@@ -18,10 +18,4 @@
     <ProjectReference Include="..\Repository\Repositories.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="wwwroot\lib\autoNumeric\autoNumeric-min.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\lib\autoNumeric\autoNumeric.js" />
-  </ItemGroup>
-
 </Project>

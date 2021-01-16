@@ -6,9 +6,9 @@ namespace Service
     public class Movie
     {
         public long Id { get; set; }
-        public bool IsAdult { get; set; } 
-        public string BackdropPath { get; set; } 
-        public List<int> GenreIds { get; set; } 
+        public bool IsAdult { get; set; }
+        public string BackdropPath { get; set; }
+        public List<int> GenreIds { get; set; }
         public string OriginalLanguage { get; set; }
         public string OriginalTitle { get; set; }
         public string Overview { get; set; }

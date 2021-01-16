@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using FrontEnd.Models;
+using Microsoft.AspNetCore.Mvc;
 using Mv.Integrations;
 using Newtonsoft.Json;
 using Service.Interface;
@@ -22,7 +25,15 @@ namespace FrontEnd.Controllers
         [Route("tops")]
         public IActionResult Index()
         {
-            return View();
+            return View(new TopMovies
+            {
+                Popular = JsonConvert.DeserializeObject<List<Movie>>(
+                    JsonConvert.SerializeObject(_service.GetMoviesByPage(1, SortBy.Popularity).Movies.Take(10))),
+                TopRevenue = JsonConvert.DeserializeObject<List<Movie>>(
+                    JsonConvert.SerializeObject(_service.GetMoviesByPage(1, SortBy.Revenue).Movies.Take(10))),
+                Recent = JsonConvert.DeserializeObject<List<Movie>>(
+                    JsonConvert.SerializeObject(_service.GetMoviesByPage(1, SortBy.ReleaseDate).Movies.Take(10)))
+            });
         }
 
 
@@ -30,15 +41,14 @@ namespace FrontEnd.Controllers
         public IActionResult Popular(int pageNumber)
         {
             return View(JsonConvert.DeserializeObject<PagedMovies>(
-                JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber))));
+                JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber, SortBy.Popularity))));
         }
 
         [Route("top-rated/{pageNumber:int}")]
         public IActionResult TopRated(int pageNumber)
         {
-            return View(
-                JsonConvert.DeserializeObject<PagedMovies>(
-                    JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber))));
+            return View(JsonConvert.DeserializeObject<PagedMovies>(
+                JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber, SortBy.TopRated))));
         }
 
         [HttpGet]

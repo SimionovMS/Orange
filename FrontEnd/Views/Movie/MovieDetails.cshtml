@@ -1,8 +1,8 @@
 ﻿@using System.Globalization
-@model FrontEnd.Models.MovieDetails;
+@model MovieDetails;
 
 @{
-    ViewData["Title"] = @Model.Title;
+    ViewData["Title"] = Model.Title;
 }
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 <div>
     <div class="row">
         <div class="col-md-6 title_wrapper">
-            <h1 style="width:100%">@Model.Title (@Convert.ToDateTime(@Model.ReleaseDate).Year)</h1>
+            <h1 style="width:100%">@Model.Title @(string.IsNullOrEmpty(Model.ReleaseDate) ? "" : (@Convert.ToDateTime(Model.ReleaseDate).Year).ToString())</h1>
         </div>
         <div class="col-md-4"></div>
         <div class="col-md-1">
@@ -37,21 +37,24 @@
         </div>
     </div>
     <div style="font-size: 20px; padding-bottom: 10px">
-        @if (@Model.RunTime != 0)
+        @if (Model.RunTime != 0)
         {
-            @decimal.ToInt32(@Model.RunTime / 60)<text>h</text>
-            @decimal.ToInt32(@Model.RunTime % 60)<text>min |</text>
+            @decimal.ToInt32(Model.RunTime / 60)<text>h</text>
+            @decimal.ToInt32(Model.RunTime % 60)<text>min |</text>
         }
-        @foreach (var genre in @Model.Genres.Where(genre => @Model.Genres.Last().Value != genre.Value))
+        @if (Model.Genres.Any())
         {
-            @:@genre.Value,
+            @foreach (var genre in Model.Genres.Where(genre => Model.Genres.Last().Value != genre.Value))
+            {
+                @:@genre.Value,
+            }
+            @Model.Genres.Last().Value
         }
-        @Model.Genres.Last().Value
         | @Model.ReleaseDate
-        @if (@Model.ProductionCountries.Any())
+        @if (Model.ProductionCountries.Any())
         {
             <text> (</text>
-            @foreach (var country in @Model.ProductionCountries.Where(country => country != @Model.ProductionCountries.Last()))
+            @foreach (var country in Model.ProductionCountries.Where(country => country != Model.ProductionCountries.Last()))
             {
                 @:@country,
             }
@@ -59,7 +62,7 @@
             <text>)</text>
         }
     </div>
-    @if (string.IsNullOrEmpty(@Model.Video))
+    @if (string.IsNullOrEmpty(Model.Video))
     {
         <div class="centered-row" style="width: 100%">
             <div class="column" style="width: 100%">
@@ -97,21 +100,21 @@
         <tr>
             <td>Budget</td>
             <td id="budget">
-                @(@Model.Budget == 0 ? "Unknown" : @Model.Budget.ToString(CultureInfo.InvariantCulture))
+                @(Model.Budget == 0 ? "Unknown" : Model.Budget.ToString(CultureInfo.InvariantCulture))
             </td>
         </tr>
         <tr>
             <td>Revenue</td>
             <td>
-                @(@Model.Revenue == 0 ? "Unknown" : @Model.Revenue.ToString(CultureInfo.InvariantCulture))
+                @(Model.Revenue == 0 ? "Unknown" : Model.Revenue.ToString(CultureInfo.InvariantCulture))
             </td>
         </tr>
         <tr>
             <td>Spoken Languages</td>
             <td>
-                @if (@Model.SpokenLanguages.Any())
+                @if (Model.SpokenLanguages.Any())
                 {
-                    @foreach (var language in @Model.SpokenLanguages.Where(x => x != @Model.SpokenLanguages.Last()))
+                    @foreach (var language in Model.SpokenLanguages.Where(x => x != Model.SpokenLanguages.Last()))
                     {
                         @language
                     }
@@ -126,19 +129,19 @@
         <tr>
             <td>Collection Name</td>
             <td>
-                @(string.IsNullOrEmpty(@Model.Collection) ? "None" : @Model.Collection)
+                @(string.IsNullOrEmpty(Model.Collection) ? "None" : Model.Collection)
             </td>
         </tr>
         <tr>
             <td>Popularity</td>
             <td>
-                <input id="revenue">@(@Model.Popularity == 0 ? (object) "Unknown" : @Model.Popularity.ToString(CultureInfo.InvariantCulture))
+                @(Model.Popularity == 0 ? (object) "Unknown" : Model.Popularity.ToString(CultureInfo.InvariantCulture))
             </td>
         </tr>
         <tr>
             <td>Homepage</td>
             <td id="homepage">
-                @if (string.IsNullOrEmpty(@Model.Homepage))
+                @if (string.IsNullOrEmpty(Model.Homepage))
                 {
                     @:None
                 }
@@ -151,7 +154,14 @@
         <tr>
             <td>Imdb link</td>
             <td id="homepage">
-                <a target="_blank" href="@Model.ImdbId">link</a>
+                @if (string.IsNullOrEmpty(Model.ImdbId))
+                {
+                    @:None
+                }
+                else
+                {
+                    <a target="_blank" href="@Model.ImdbId">link</a>
+                }
             </td>
         </tr>
         <tr>
@@ -161,16 +171,16 @@
         <tr>
             <td>Tagline</td>
             <td>
-                @(string.IsNullOrEmpty(@Model.Tagline) ? "None" : @Model.Tagline)
+                @(string.IsNullOrEmpty(Model.Tagline) ? "None" : Model.Tagline)
             </td>
         </tr>
         <tr>
             <td>Production Companies</td>
             <td>
 
-                @if (@Model.ProductionCompanies.Any())
+                @if (Model.ProductionCompanies.Any())
                 {
-                    @foreach (var company in @Model.ProductionCompanies.Where(x => x != @Model.ProductionCompanies.Last()))
+                    @foreach (var company in Model.ProductionCompanies.Where(x => x != Model.ProductionCompanies.Last()))
                     {
                         @:@company,
                     }
@@ -185,7 +195,7 @@
         <tr>
             <td>Adult</td>
             <td id="isAdult">
-                @(@Model.IsAdult ? "Yes" : "No")
+                @(Model.IsAdult ? "Yes" : "No")
             </td>
         </tr>
     </table>

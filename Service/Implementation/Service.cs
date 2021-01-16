@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.Extensions.Configuration;
-using Service.Interface;
 using Mv.Integrations;
+using Service.Interface;
 
 namespace Service.Implementation
 {
@@ -17,9 +16,9 @@ namespace Service.Implementation
             _configuration = configuration;
         }
 
-        public PagedMovies GetMoviesByPage(int pageNumber)
+        public PagedMovies GetMoviesByPage(int pageNumber, SortBy sortBy)
         {
-            return _apiClient.GetMovies(pageNumber);
+            return _apiClient.GetMovies(pageNumber, sortBy);
         }
 
         public MovieDetails GetMovieDetails(long movieId)
@@ -36,15 +35,15 @@ namespace Service.Implementation
             else
             {
                 generalDetails.PosterPath = imageConfiguration.BaseUrl + imageConfiguration.PosterSize +
-                                                         generalDetails.PosterPath;
+                                            generalDetails.PosterPath;
                 generalDetails.Video = _configuration.GetSection("YTUrl").Value + videoId;
             }
 
-            generalDetails.Genres = (Dictionary<int, string>) _apiClient.GetGenres()
+            generalDetails.Genres = _apiClient.GetGenres()
                 .Where(x => generalDetails.GenreIds.Contains(x.Key))
                 .ToDictionary(x => x.Key, x => x.Value);
-            generalDetails.ImdbId = _configuration.GetSection("ImdbUrl").Value + generalDetails.ImdbId;
-            
+            generalDetails.ImdbId = string.IsNullOrEmpty(generalDetails.ImdbId) ? "" : _configuration.GetSection("ImdbUrl").Value + generalDetails.ImdbId;
+
             return generalDetails;
         }
     }

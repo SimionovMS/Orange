@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Mv.Integrations;
+﻿using Mv.Integrations;
 
 namespace Service.Interface
 {
     public interface IService
     {
-        PagedMovies GetMoviesByPage(int pageNumber);
+        PagedMovies GetMoviesByPage(int pageNumber, SortBy sortBy);
         MovieDetails GetMovieDetails(long movieId);
     }
 }

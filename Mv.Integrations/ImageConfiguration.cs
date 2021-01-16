@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Mv.Integrations
+﻿namespace Mv.Integrations
 {
     public class ImageConfiguration
     {

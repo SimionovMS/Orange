@@ -1,9 +1,9 @@
-﻿namespace DataAccess.Models
+﻿namespace DataAccess
 {
     public class FavoriteMovie
     {
-        public long Id { get; set; }
+        public long FavoriteMovieId { get; set; }
         public long MovieId { get; set; }
-        public long UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

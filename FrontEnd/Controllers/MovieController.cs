@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using FrontEnd.Models;
 using Microsoft.AspNetCore.Mvc;
 using Mv.Integrations;
 using Newtonsoft.Json;
+using RestSharp;
 using Service.Interface;
 using MovieDetails = FrontEnd.Models.MovieDetails;
 using PagedMovies = FrontEnd.Models.PagedMovies;
@@ -58,6 +60,26 @@ namespace FrontEnd.Controllers
             return View(
                 JsonConvert.DeserializeObject<MovieDetails>(
                     JsonConvert.SerializeObject(_service.GetMovieDetails(movieId))));
+        }
+        
+        [HttpPost]
+        [Route("add/{movieId}")]
+        public HttpResponse AddToFavorite(long movieId)
+        { 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            _service.AddFavorite(movieId, userId);
+            
+            return new HttpResponse();
+        }
+        
+        [HttpPost]
+        [Route("delete/{movieId}")]
+        public HttpResponse DeleteFromFavorite(long movieId)
+        { 
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            _service.DeleteFromFavorite(movieId, userId);
+            
+            return new HttpResponse();
         }
     }
 }

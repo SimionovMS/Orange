@@ -33,6 +33,8 @@ namespace FrontEnd
             });
 
             services.AddDbContext<ApplicationIdentityDbContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));            
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)

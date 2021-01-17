@@ -6,5 +6,7 @@ namespace Service.Interface
     {
         PagedMovies GetMoviesByPage(int pageNumber, SortBy sortBy);
         MovieDetails GetMovieDetails(long movieId);
+        void AddFavorite(long movieId, string userId);
+        void DeleteFromFavorite(long movieId, string userId);
     }
 }

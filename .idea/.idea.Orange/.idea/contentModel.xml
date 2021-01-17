@@ -23,73 +23,8 @@
         <e p="appsettings.json" t="Include" />
         <e p="Areas" t="Include">
           <e p="Identity" t="Include">
-            <e p="IdentityHostingStartup.cs" t="Include" />
             <e p="Pages" t="Include">
-              <e p="_ValidationScriptsPartial.cshtml" t="Include" />
-              <e p="_ViewImports.cshtml" t="Include" />
               <e p="_ViewStart.cshtml" t="Include" />
-              <e p="Account" t="Include">
-                <e p="_ViewImports.cshtml" t="Include" />
-                <e p="AccessDenied.cshtml" t="Include" />
-                <e p="AccessDenied.cshtml.cs" t="Include" />
-                <e p="ConfirmEmail.cshtml" t="Include" />
-                <e p="ConfirmEmail.cshtml.cs" t="Include" />
-                <e p="ExternalLogin.cshtml" t="Include" />
-                <e p="ExternalLogin.cshtml.cs" t="Include" />
-                <e p="ForgotPassword.cshtml" t="Include" />
-                <e p="ForgotPassword.cshtml.cs" t="Include" />
-                <e p="ForgotPasswordConfirmation.cshtml" t="Include" />
-                <e p="ForgotPasswordConfirmation.cshtml.cs" t="Include" />
-                <e p="Lockout.cshtml" t="Include" />
-                <e p="Lockout.cshtml.cs" t="Include" />
-                <e p="Login.cshtml" t="Include" />
-                <e p="Login.cshtml.cs" t="Include" />
-                <e p="LoginWith2fa.cshtml" t="Include" />
-                <e p="LoginWith2fa.cshtml.cs" t="Include" />
-                <e p="LoginWithRecoveryCode.cshtml" t="Include" />
-                <e p="LoginWithRecoveryCode.cshtml.cs" t="Include" />
-                <e p="Logout.cshtml" t="Include" />
-                <e p="Logout.cshtml.cs" t="Include" />
-                <e p="Manage" t="Include">
-                  <e p="_Layout.cshtml" t="Include" />
-                  <e p="_ManageNav.cshtml" t="Include" />
-                  <e p="_StatusMessage.cshtml" t="Include" />
-                  <e p="_ViewImports.cshtml" t="Include" />
-                  <e p="ChangePassword.cshtml" t="Include" />
-                  <e p="ChangePassword.cshtml.cs" t="Include" />
-                  <e p="DeletePersonalData.cshtml" t="Include" />
-                  <e p="DeletePersonalData.cshtml.cs" t="Include" />
-                  <e p="Disable2fa.cshtml" t="Include" />
-                  <e p="Disable2fa.cshtml.cs" t="Include" />
-                  <e p="DownloadPersonalData.cshtml" t="Include" />
-                  <e p="DownloadPersonalData.cshtml.cs" t="Include" />
-                  <e p="EnableAuthenticator.cshtml" t="Include" />
-                  <e p="EnableAuthenticator.cshtml.cs" t="Include" />
-                  <e p="ExternalLogins.cshtml" t="Include" />
-                  <e p="ExternalLogins.cshtml.cs" t="Include" />
-                  <e p="GenerateRecoveryCodes.cshtml" t="Include" />
-                  <e p="GenerateRecoveryCodes.cshtml.cs" t="Include" />
-                  <e p="Index.cshtml" t="Include" />
-                  <e p="Index.cshtml.cs" t="Include" />
-                  <e p="ManageNavPages.cs" t="Include" />
-                  <e p="PersonalData.cshtml" t="Include" />
-                  <e p="PersonalData.cshtml.cs" t="Include" />
-                  <e p="ResetAuthenticator.cshtml" t="Include" />
-                  <e p="ResetAuthenticator.cshtml.cs" t="Include" />
-                  <e p="SetPassword.cshtml" t="Include" />
-                  <e p="SetPassword.cshtml.cs" t="Include" />
-                  <e p="TwoFactorAuthentication.cshtml" t="Include" />
-                  <e p="TwoFactorAuthentication.cshtml.cs" t="Include" />
-                </e>
-                <e p="Register.cshtml" t="Include" />
-                <e p="Register.cshtml.cs" t="Include" />
-                <e p="ResetPassword.cshtml" t="Include" />
-                <e p="ResetPassword.cshtml.cs" t="Include" />
-                <e p="ResetPasswordConfirmation.cshtml" t="Include" />
-                <e p="ResetPasswordConfirmation.cshtml.cs" t="Include" />
-              </e>
-              <e p="Error.cshtml" t="Include" />
-              <e p="Error.cshtml.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -117,7 +52,6 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
-        <e p="ScaffoldingReadme.txt" t="Include" />
         <e p="Startup.cs" t="Include" />
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
@@ -132,7 +66,6 @@
             <e p="TopRated.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
-            <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_LoginPartial.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
@@ -225,14 +158,19 @@
       <e p="Orange.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Repository" t="IncludeRecursive">
-        <e p="ApplicationContext.cs" t="Include" />
         <e p="ApplicationDbContext.cs" t="Include" />
+        <e p="ApplicationidentityDbContext.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="IRepository.cs" t="Include" />
         <e p="Migrations" t="Include">
           <e p="00000000000000_CreateIdentitySchema.cs" t="Include" />
           <e p="00000000000000_CreateIdentitySchema.Designer.cs" t="Include" />
-          <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+          <e p="ApplicationDb" t="Include">
+            <e p="20210117160059_AddedFavoriteMovieTable.cs" t="Include" />
+            <e p="20210117160059_AddedFavoriteMovieTable.Designer.cs" t="Include" />
+            <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+          </e>
+          <e p="ApplicationIdentityDbContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

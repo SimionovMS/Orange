@@ -15,7 +15,10 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\Mv.Integrations\Mv.Integrations.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Repository\Repositories.csproj" />
+    <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
 </Project>

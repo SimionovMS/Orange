@@ -1,21 +1,38 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DataAccess.Models;
+using DataAccess;
 
 namespace Repository
 {
     public class Repository : IRepository
     {
-        private readonly ApplicationContext _context;
+        private readonly ApplicationDbContext _dbContext;
 
-        public Repository(ApplicationContext context)
+        public Repository(ApplicationDbContext dbContext)
         {
-            _context = context;
+            _dbContext = dbContext;
         }
 
-        IEnumerable<FavoriteMovie> IRepository.GetAll()
+        public IEnumerable<FavoriteMovie> GetAll()
         {
-            return _context.FavoriteMovies.AsEnumerable();
+            return _dbContext.FavoriteMovies.AsEnumerable();
+        }
+
+        public bool IsFavorite(long movieId, string userId)
+        {
+            return _dbContext.FavoriteMovies.Any(x => x.MovieId == movieId && x.UserId == userId);
+        }
+
+        public void DeleteFromFavorite(FavoriteMovie favoriteMovie)
+        {
+            _dbContext.FavoriteMovies.RemoveRange(_dbContext.FavoriteMovies.Where(x =>
+                x.MovieId == favoriteMovie.MovieId && x.UserId == favoriteMovie.UserId));
+        }
+
+        public void AddFavorite(FavoriteMovie movie)
+        {
+            _dbContext.FavoriteMovies.Add(movie);
+            _dbContext.SaveChanges();
         }
     }
 }

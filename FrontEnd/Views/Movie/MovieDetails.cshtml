@@ -31,7 +31,7 @@
         </div>
         <div class="col-md-1">
             <span class="small">
-                <i class="fa fa-heart-o" id="favorite" onclick="addToFavorite(@Model.Id)" style="font-size:48px;"></i>
+                <i class="fa @(Model.IsFavorite == true ? "fa fa-heart" : "fa fa-heart-o")" id="favorite" onclick="addToFavorite(@Model.Id)" style="font-size:48px;"></i>
             </span>
         </div>
     </div>
@@ -205,8 +205,6 @@
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
-        // $("#content").load("@Url.Action("LoadNonAdmin")");
-
 function numberWithCommas(x) {
    console.log($('#budget').filter(function(){return $.trim(this.innerHTML) === "0"}).text(''));
 
@@ -217,10 +215,38 @@ function numberWithCommas(x) {
 function addToFavorite(movieId) {
     let classList = $('#favorite')[0].classList;
 
-    if (classList.contains("fa-heart-o")){        
-        classList.replace("fa-heart-o", "fa-heart");
+    if (classList.contains("fa-heart-o")){  
+        let a = @(User.Identity.IsAuthenticated.ToString().ToLower());
+        if(a === true) 
+        {
+            $.ajax({
+                type: "POST",
+                url: "../../movie/add/" + movieId,
+                contentType: "application/json",
+                dataType: "json",
+                success: function () {
+                    classList.replace("fa-heart-o", "fa-heart");
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        } else {
+            window.location.href = '/Identity/Account/Login';
+        }
     } else{
-        classList.replace("fa-heart", "fa-heart-o");
+         $.ajax({
+               type: "POST",
+               url: "../../movie/delete/" + movieId,
+               contentType: "application/json",
+               dataType: "json",
+               success: function () {
+                  classList.replace("fa-heart", "fa-heart-o");
+               },
+               failure: function (response) {
+                  alert(response.d);
+               }
+         });
     }
      console.log("yo");
 }

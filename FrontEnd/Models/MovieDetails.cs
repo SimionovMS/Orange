@@ -17,5 +17,6 @@ namespace FrontEnd.Models
         public List<string> SpokenLanguages { get; set; }
         public string Collection { get; set; }
         public string Video { get; set; }
+        public bool IsFavorite { get; set; }
     }
 }

@@ -17,5 +17,6 @@ namespace Mv.Integrations
         public List<string> ProductionCountries { get; set; }
         public List<string> SpokenLanguages { get; set; }
         public string Collection { get; set; }
+        public bool IsFavorite { get; set; }
     }
 }

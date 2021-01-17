@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using DataAccess;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public class ApplicationIdentityDbContext : IdentityDbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options)
+        public ApplicationDbContext(DbContextOptions options)
             : base(options)
         {
         }
+
+        public DbSet<FavoriteMovie> FavoriteMovies { get; set; }
     }
 }

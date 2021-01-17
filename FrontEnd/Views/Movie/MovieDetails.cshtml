@@ -18,8 +18,8 @@
         <div class="col-md-6 title_wrapper">
             <h1 style="width:100%">@Model.Title @(string.IsNullOrEmpty(Model.ReleaseDate) ? "" : (@Convert.ToDateTime(Model.ReleaseDate).Year).ToString())</h1>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-1">
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
             <div>
                 <div>
                     <strong>
@@ -31,8 +31,7 @@
         </div>
         <div class="col-md-1">
             <span class="small">
-                <i class="fa fa-heart-o" style="font-size:48px;"></i>
-                <i class="fa fa-heart"></i>
+                <i class="fa fa-heart-o" id="favorite" onclick="addToFavorite(@Model.Id)" style="font-size:48px;"></i>
             </span>
         </div>
     </div>
@@ -202,19 +201,28 @@
 </div>
 </body>
 </html>
-@* *@
-@* <script src="~/lib/jquery/dist/jquery.js"></script> *@
-@* <script>       *@
-@* $(document).ready(numberWithCommas(@Model.Revenue) *@
-@* ); *@
-@* *@
-@* function numberWithCommas(x) { *@
-@*    console.log($('#budget').filter(function(){return $.trim(this.innerHTML) === "0"}).text('')); *@
-@* *@
-@*         console.log(x,  $('.budget').value); *@
-@*     let replace = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); *@
-@*     console.log(replace, $('#revenue').value); *@
-@* } *@
-@* var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model)); *@
-@*     console.log(model);    *@
-@* </script> *@
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+        // $("#content").load("@Url.Action("LoadNonAdmin")");
+
+function numberWithCommas(x) {
+   console.log($('#budget').filter(function(){return $.trim(this.innerHTML) === "0"}).text(''));
+
+        console.log(x,  $('.budget').value);
+    let replace = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    console.log(replace, $('#revenue').value);
+}
+function addToFavorite(movieId) {
+    let classList = $('#favorite')[0].classList;
+
+    if (classList.contains("fa-heart-o")){        
+        classList.replace("fa-heart-o", "fa-heart");
+    } else{
+        classList.replace("fa-heart", "fa-heart-o");
+    }
+     console.log("yo");
+}
+
+</script>

@@ -6,24 +6,14 @@
     <projectFile>frontend1/frontend1.csproj</projectFile>
   </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b17678e4-702d-4b58-b554-6c84cc3185da" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Orange/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Controllers/MovieController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Movie/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Movie/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Movie/MovieDetails.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Movie/MovieDetails.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/Views/Movie/TopRated.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/Views/Movie/TopRated.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mv.Integrations/SortBy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Mv.Integrations/SortBy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Service/Implementation/Service.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Service/Implementation/Service.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,36 +24,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/FrontEnd/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3B29829A-85B4-4E9F-9EDB-063EC7FF0327/24/ConfigurationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/FrontEnd/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/87E8CE02-3EE4-404D-9082-6C8A5038171A/21/286f20da/IActionResult.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/FrontEnd/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Repository/ApplicationDbContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/221FA654-76FD-4A6A-A7BE-C2CD9B5A08D9/1/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Controllers/MovieController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/msimi/source/repos/OrangeTest/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3B29829A-85B4-4E9F-9EDB-063EC7FF0327/24/ConfigurationManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -115,10 +81,10 @@
         <option value="$PROJECT_DIR$/FrontEnd/Views/Movie/Index.cshtml" />
         <option value="$PROJECT_DIR$/Mv.Integrations/SortBy.cs" />
         <option value="$PROJECT_DIR$/Service/Implementation/Service.cs" />
-        <option value="$PROJECT_DIR$/FrontEnd/Views/Movie/MovieDetails.cshtml" />
         <option value="$PROJECT_DIR$/FrontEnd/Controllers/MovieController.cs" />
         <option value="$PROJECT_DIR$/FrontEnd/Views/Movie/TopRated.cshtml" />
         <option value="$PROJECT_DIR$/FrontEnd/Areas/Identity/Pages/_ViewStart.cshtml" />
+        <option value="$PROJECT_DIR$/FrontEnd/Views/Movie/MovieDetails.cshtml" />
       </list>
     </option>
   </component>
@@ -228,6 +194,7 @@
       <workItem from="1610793690514" duration="36913000" />
       <workItem from="1610839361351" duration="389000" />
       <workItem from="1610839895191" duration="3213000" />
+      <workItem from="1610892863913" duration="1569000" />
     </task>
     <servers />
   </component>
@@ -334,6 +301,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="536" y="165" key="#Inspection_severity" timestamp="1610894386698">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="536" y="165" key="#Inspection_severity/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610894386698" />
     <state x="707" y="385" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1610747983025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -342,22 +313,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="772" height="473" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610841258155" />
-    <state width="1921" height="306" key="GridCell.Tab.0.bottom" timestamp="1610843017762">
+    <state width="1921" height="390" key="GridCell.Tab.0.bottom" timestamp="1610893190380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="306" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610843017762" />
-    <state width="1921" height="306" key="GridCell.Tab.0.center" timestamp="1610843017762">
+    <state width="1921" height="390" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610893190380" />
+    <state width="1921" height="390" key="GridCell.Tab.0.center" timestamp="1610893190380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="306" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610843017762" />
-    <state width="1921" height="306" key="GridCell.Tab.0.left" timestamp="1610843017762">
+    <state width="1921" height="390" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610893190380" />
+    <state width="1921" height="390" key="GridCell.Tab.0.left" timestamp="1610893190379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="306" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610843017762" />
-    <state width="1921" height="306" key="GridCell.Tab.0.right" timestamp="1610843017762">
+    <state width="1921" height="390" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610893190379" />
+    <state width="1921" height="390" key="GridCell.Tab.0.right" timestamp="1610893190380">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1921" height="306" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610843017762" />
+    <state width="1921" height="390" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610893190380" />
     <state width="1921" height="306" key="GridCell.Tab.1.bottom" timestamp="1610843017762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -458,10 +429,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610823371609" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610842418038">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610893469212">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610842418038" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1610893469212" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

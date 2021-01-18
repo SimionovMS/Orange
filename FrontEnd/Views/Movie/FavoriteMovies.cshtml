@@ -42,11 +42,9 @@ else
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
 function showDetails(movieId) {
-    console.log(movieId)
         window.location.href = '../../movie/details/' + movieId;
     }
 function deleteFromFavorite(movieId) {   
-    console.log($('#'+ movieId))
          $.ajax({
                type: "POST",
                url: "../../movie/delete/" + movieId,

@@ -206,11 +206,7 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
 function numberWithCommas(x) {
-   console.log($('#budget').filter(function(){return $.trim(this.innerHTML) === "0"}).text(''));
-
-        console.log(x,  $('.budget').value);
     let replace = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    console.log(replace, $('#revenue').value);
 }
 function addToFavorite(movieId) {
     let classList = $('#favorite')[0].classList;
@@ -248,7 +244,6 @@ function addToFavorite(movieId) {
                }
          });
     }
-     console.log("yo");
 }
 
 </script>

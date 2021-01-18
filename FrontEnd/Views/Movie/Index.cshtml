@@ -103,14 +103,11 @@
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 <script type="text/javascript">
     function showDetails(movieId) {
-        console.log(movieId);
         window.location.href = '/movie/details/' + movieId;
     }
     
     function PagerClick(index) {
-        console.log(index)      
         document.getElementById("hfCurrentPageIndex").value = index;
-        console.log(index);
         window.location.href = '/movie/popular/' + index;
    }
 </script>

@@ -65,14 +65,11 @@
 $(document).ready(
         history.pushState({pageNumber: 2}, "title 2", "?pageNumber=2"));
     function showDetails(movieId) {
-        console.log(movieId);
         window.location.href = '/movie/details/' + movieId;
     }
     
     function PagerClick(index) {
-        console.log(index)      
         document.getElementById("hfCurrentPageIndex").value = index;
-        console.log(index);
         window.location.href = '/movie/top-rated/' + index;
    }
 </script>

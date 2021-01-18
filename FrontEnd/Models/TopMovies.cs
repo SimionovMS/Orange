@@ -5,8 +5,8 @@ namespace FrontEnd.Models
 {
     public class TopMovies
     {
-        public List<Movie> Popular { get; set; }
-        public List<Movie> TopRevenue { get; set; }
-        public List<Movie> Recent { get; set; }
+        public List<MovieApi> Popular { get; set; }
+        public List<MovieApi> TopRevenue { get; set; }
+        public List<MovieApi> Recent { get; set; }
     }
 }

@@ -30,13 +30,11 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="HomeController.cs" t="Include" />
           <e p="MovieController.cs" t="Include" />
         </e>
         <e p="FrontEnd.csproj" t="IncludeRecursive" />
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
-          <e p="MovieDetails.cs" t="Include" />
           <e p="PagedMovies.cs" t="Include" />
           <e p="TopMovies.cs" t="Include" />
         </e>
@@ -56,14 +54,12 @@
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
-          <e p="Home" t="Include">
-            <e p="Index.cshtml" t="Include" />
-          </e>
           <e p="Movie" t="Include">
+            <e p="FavoriteMovies.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
             <e p="MovieDetails.cshtml" t="Include" />
-            <e p="Popular.cshtml" t="Include" />
-            <e p="TopRated.cshtml" t="Include" />
+            <e p="PopularMovies.cshtml" t="Include" />
+            <e p="TopRatedMovies.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
@@ -141,8 +137,8 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="ImageConfiguration.cs" t="Include" />
-        <e p="Movie.cs" t="Include" />
-        <e p="MovieDetails.cs" t="Include" />
+        <e p="MovieApi.cs" t="Include" />
+        <e p="MovieApiDetails.cs" t="Include" />
         <e p="MovieParameters.cs" t="Include" />
         <e p="Mv.Integrations.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -190,7 +186,6 @@
         <e p="Interface" t="Include">
           <e p="IService.cs" t="Include" />
         </e>
-        <e p="Movie.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.2" t="Include">

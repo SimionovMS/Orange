@@ -4,7 +4,7 @@ namespace Mv.Integrations
 {
     public class PagedMovies
     {
-        public List<Movie> Movies { get; set; }
+        public List<MovieApi> Movies { get; set; }
         public int Page { get; set; }
         public int TotalPages { get; set; }
         public int TotalResults { get; set; }

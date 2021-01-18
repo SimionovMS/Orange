@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "FrontEnd\FrontE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repository\Repositories.csproj", "{0F00F2F8-251B-45C5-B379-71E9DF702988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mv.Integrations", "Mv.Integrations\Mv.Integrations.csproj", "{3E8260EC-DA18-4B0F-8FF6-583DD231E127}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mv.Integrations", "Mv.Integrations\Mv.Integrations.csproj", "{3E8260EC-DA18-4B0F-8FF6-583DD231E127}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

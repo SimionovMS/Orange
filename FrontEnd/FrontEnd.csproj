@@ -21,4 +21,9 @@
     <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Home\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

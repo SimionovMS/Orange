@@ -5,31 +5,36 @@
 }
 
 <link rel="stylesheet" href="~/css/site.css"/>
-@using (Html.BeginForm("Popular", "Movie", FormMethod.Post))
+@using (Html.BeginForm("PopularMovies", "Movie", FormMethod.Post))
 {
     <div>
-        <h2>Popular Movies
-                <a style="font-size: 20px; margin-right: 0" href="/movie/popular/1">View more...</a>
+        <h2>
+            Popular Movies
+            <a style="font-size: 20px; margin-right: 0" href="/movie/popular/1">View more...</a>
         </h2>
         <table class="styled-table clickable">
             <thead>
             <tr>
-                <th>Votes</th>
+                <th></th>
                 <th>Movie</th>
                 <th>Release Date</th>
-                <th>Revenue</th>
+                <th>Rating</th>
+                <th>Votes</th>
             </tr>
             </thead>
             <tbody>
+            @{var i = 1;}
             @foreach (var movie in Model.Popular)
             {
                 <tr onclick="showDetails(@movie.Id)">
-                    <td>@movie.VoteCount</td>
+                    <td>@i     @{i++;
+                                 }</td>
                     <td>
                         @movie.Title
                     </td>
                     <td>@movie.ReleaseDate</td>
-                    <td>@movie.Popularity</td>
+                    <td>@movie.VoteAverage</td>
+                    <td>@movie.VoteCount</td>
                 </tr>
             }
             </tbody>
@@ -38,22 +43,26 @@
         <table class="styled-table clickable">
             <thead>
             <tr>
-                <th>Votes</th>
+                <th></th>
                 <th>Movie</th>
                 <th>Release Date</th>
-                <th>Revenue</th>
+                <th>Rating</th>
+                <th>Votes</th>
             </tr>
             </thead>
             <tbody>
+            @{ i = 1;}
             @foreach (var movie in Model.TopRevenue)
             {
                 <tr onclick="showDetails(@movie.Id)">
-                    <td>@movie.VoteCount</td>
+                    <td>@i     @{i++;
+                                 }</td>
                     <td>
                         @movie.Title
                     </td>
                     <td>@movie.ReleaseDate</td>
-                    <td>@movie.Popularity</td>
+                    <td>@movie.VoteAverage</td>
+                    <td>@movie.VoteCount</td>
                 </tr>
             }
             </tbody>
@@ -62,22 +71,26 @@
         <table class="styled-table clickable">
             <thead>
             <tr>
-                <th>Votes</th>
+                <th></th>
                 <th>Movie</th>
                 <th>Release Date</th>
-                <th>Revenue</th>
+                <th>Rating</th>
+                <th>Votes</th>
             </tr>
             </thead>
             <tbody>
+            @{i = 1;}
             @foreach (var movie in Model.Recent)
             {
                 <tr onclick="showDetails(@movie.Id)">
-                    <td>@movie.VoteCount</td>
+                    <td>@i     @{i++;
+                                 }</td>
                     <td>
                         @movie.Title
                     </td>
                     <td>@movie.ReleaseDate</td>
-                    <td>@movie.Popularity</td>
+                    <td>@movie.VoteAverage</td>
+                    <td>@movie.VoteCount</td>
                 </tr>
             }
             </tbody>

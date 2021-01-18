@@ -5,29 +5,35 @@
 }
 
 <link rel="stylesheet" href="~/css/site.css"/>
-@using (Html.BeginForm("Popular", "Movie", FormMethod.Post))
+@using (Html.BeginForm("TopRatedMovies", "Movie", FormMethod.Post))
 {
     <div>
-        <h2> Popular Movies </h2>
+        <h2> Top Rated Movies </h2>
         <table class="styled-table clickable">
             <thead>
             <tr>
-                <th>Votes</th>
+                <th></th>
                 <th>Movie</th>
                 <th>Release Date</th>
-                <th>Revenue</th>
+                <th>Rating</th>
+                <th>Votes</th>
             </tr>
             </thead>
             <tbody>
+            @{var i = 1;}
             @foreach (var movie in Model.Movies)
             {
                 <tr onclick="showDetails(@movie.Id)">
-                    <td>@movie.VoteCount</td>
+                    <td>
+                        @i
+                        @{i++; }
+                    </td>
                     <td>
                         @movie.Title
                     </td>
                     <td>@movie.ReleaseDate</td>
-                    <td>@movie.Popularity</td>
+                    <td>@movie.VoteAverage</td>
+                    <td>@movie.VoteCount</td>
                 </tr>
             }
             </tbody>
@@ -56,6 +62,8 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 <script type="text/javascript">
+$(document).ready(
+        history.pushState({pageNumber: 2}, "title 2", "?pageNumber=2"));
     function showDetails(movieId) {
         console.log(movieId);
         window.location.href = '/movie/details/' + movieId;
@@ -65,6 +73,6 @@
         console.log(index)      
         document.getElementById("hfCurrentPageIndex").value = index;
         console.log(index);
-        window.location.href = '/movie/popular/' + index;
+        window.location.href = '/movie/top-rated/' + index;
    }
 </script>

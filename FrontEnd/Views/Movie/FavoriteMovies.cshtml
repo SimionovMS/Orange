@@ -1,0 +1,63 @@
+﻿@model System.Collections.Generic.IEnumerable<Mv.Integrations.MovieApiDetails>
+@{
+    ViewBag.Title = "Favorite";
+    Layout = "_Layout";
+}
+@if (@Model.Any())
+{
+    <h2>Favorite Movies</h2>
+    <table class="styled-table clickable">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Movie</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+            <th>Votes</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var movie in Model)
+        {
+            <tr id=@movie.Id>
+                <td onclick="deleteFromFavorite(@movie.Id)">
+                    <i class="fa fa fa-heart"></i>
+                </td>
+                <td onclick="showDetails(@movie.Id)">
+                    @movie.Title
+                </td>
+                <td onclick="showDetails(@movie.Id)">@movie.ReleaseDate</td>
+                <td onclick="showDetails(@movie.Id)">@movie.VoteAverage</td>
+                <td onclick="showDetails(@movie.Id)">@movie.VoteCount</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <h1>You do not have any movies added to favorite</h1>
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+function showDetails(movieId) {
+    console.log(movieId)
+        window.location.href = '../../movie/details/' + movieId;
+    }
+function deleteFromFavorite(movieId) {   
+    console.log($('#'+ movieId))
+         $.ajax({
+               type: "POST",
+               url: "../../movie/delete/" + movieId,
+               contentType: "application/json",
+               dataType: "json",
+               success: function () {
+                   $('#' + movieId).remove();
+               },
+               failure: function (response) {
+                  alert("Something went wrong");
+               }
+         });
+}
+</script>

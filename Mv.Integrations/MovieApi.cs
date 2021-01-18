@@ -2,7 +2,7 @@
 
 namespace Mv.Integrations
 {
-    public class Movie
+    public class MovieApi
     {
         public long Id { get; set; }
         public bool IsAdult { get; set; }
@@ -18,6 +18,7 @@ namespace Mv.Integrations
         public string Title { get; set; }
         public bool HasVideo { get; set; }
         public decimal VoteAverage { get; set; }
+        public string Collection { get; set; }
         public long VoteCount { get; set; }
     }
 }

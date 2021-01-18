@@ -7,7 +7,6 @@ using Mv.Integrations;
 using Newtonsoft.Json;
 using RestSharp;
 using Service.Interface;
-using MovieDetails = FrontEnd.Models.MovieDetails;
 using PagedMovies = FrontEnd.Models.PagedMovies;
 
 namespace FrontEnd.Controllers
@@ -29,25 +28,25 @@ namespace FrontEnd.Controllers
         {
             return View(new TopMovies
             {
-                Popular = JsonConvert.DeserializeObject<List<Movie>>(
+                Popular = JsonConvert.DeserializeObject<List<MovieApi>>(
                     JsonConvert.SerializeObject(_service.GetMoviesByPage(1, SortBy.Popularity).Movies.Take(10))),
-                TopRevenue = JsonConvert.DeserializeObject<List<Movie>>(
+                TopRevenue = JsonConvert.DeserializeObject<List<MovieApi>>(
                     JsonConvert.SerializeObject(_service.GetMoviesByPage(1, SortBy.Revenue).Movies.Take(10))),
-                Recent = JsonConvert.DeserializeObject<List<Movie>>(
-                    JsonConvert.SerializeObject(_service.GetMoviesByPage(1, SortBy.ReleaseDate).Movies.Take(10)))
+                Recent = JsonConvert.DeserializeObject<List<MovieApi>>(
+                    JsonConvert.SerializeObject(_service.GetMoviesByPage(1, SortBy.Latest).Movies.Take(10)))
             });
         }
 
 
         [Route("popular/{pageNumber:int}")]
-        public IActionResult Popular(int pageNumber)
+        public IActionResult PopularMovies(int pageNumber)
         {
             return View(JsonConvert.DeserializeObject<PagedMovies>(
                 JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber, SortBy.Popularity))));
         }
 
         [Route("top-rated/{pageNumber:int}")]
-        public IActionResult TopRated(int pageNumber)
+        public IActionResult TopRatedMovies(int pageNumber)
         {
             return View(JsonConvert.DeserializeObject<PagedMovies>(
                 JsonConvert.SerializeObject(_service.GetMoviesByPage(pageNumber, SortBy.TopRated))));
@@ -57,9 +56,14 @@ namespace FrontEnd.Controllers
         [Route("details/{movieId}")]
         public IActionResult MovieDetails(long movieId)
         {
-            return View(
-                JsonConvert.DeserializeObject<MovieDetails>(
-                    JsonConvert.SerializeObject(_service.GetMovieDetails(movieId))));
+            return View(_service.GetMovieFullDetails(movieId));
+        }
+        
+        [HttpGet]
+        [Route("favorite")]
+        public IActionResult FavoriteMovies()
+        {
+            return View(_service.GetFavoriteMovies());
         }
         
         [HttpPost]
